@@ -15,7 +15,7 @@ const app = new Hono()
 
 // Add CORS middleware with strict configuration
 app.use('/api/*', cors({
-  origin: ['http://localhost:8787', 'https://your-production-domain.com'], // Add your domains here
+  origin: ['http://localhost:8787', 'https://supprimer.samourai3.workers.dev'],
   allowMethods: ['POST'],
   allowHeaders: ['Content-Type'],
   exposeHeaders: ['Content-Length'],
@@ -31,7 +31,7 @@ app.use('/api/*', async (c, next) => {
   // Only allow requests from your domains
   const allowedDomains = [
     'http://localhost:8787',
-    'https://your-production-domain.com'
+    'https://supprimer.samourai3.workers.dev'
   ]
 
   if (!referer && !origin) {
@@ -61,13 +61,13 @@ const mainPage = `
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Easily clean up your Bluesky posts. Delete old posts automatically with this simple tool.">
     <meta name="keywords" content="Bluesky, post cleaner, social media, delete posts, automation">
-    <meta name="author" content="Supprimer | The Bluesky Post Cleaner">
+    <meta name="author" content="Samourai">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Supprimer | The Bluesky Post Cleaner - Manage Your Timeline">
     <meta property="og:description" content="Clean up your Bluesky timeline by removing old posts automatically.">
-    <meta property="og:url" content="https://your-domain.com">
+    <meta property="og:url" content="https://supprimer.samourai3.workers.dev">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary">
@@ -254,7 +254,7 @@ const mainPage = `
 <body>
     <div class="container">
         <div class="card">
-            <h1>Supprimer | The Bluesky Post Cleaner</h1>
+            <h1>Supprimer</h1>
             <p class="description">
                 Clean up your Bluesky timeline by removing old posts automatically.
             </p>
@@ -301,7 +301,7 @@ const mainPage = `
         </div>
         <div class="footer">
             Made with ♥️ for the Bluesky community • 
-            <a href="https://github.com/yourusername/project" target="_blank" rel="noopener noreferrer" style="color: inherit;">
+            <a href="https://github.com/3samourai/supprimer" target="_blank" rel="noopener noreferrer" style="color: inherit;">
                 Open Source
             </a>
 			•
@@ -364,11 +364,9 @@ const mainPage = `
 </body>
 </html>
 `
-
 // Update the root route to serve the HTML page
 app.get('/', (c) => c.html(mainPage))
 
-// Your existing API route
 app.post('/api', async (c) => {
   try {
     const { username, password, days = 14 } = await c.req.json()
@@ -440,7 +438,7 @@ app.get('/privacy', (c) => {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Supprimer | The Bluesky Post Cleaner</title>
+    <title>Privacy Policy - Supprimer</title>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -545,7 +543,7 @@ app.get('/privacy', (c) => {
             <h2>Open Source</h2>
             <p>
                 This tool is open source. You can verify the privacy by reviewing the code on 
-                <a href="https://github.com/yourusername/project" target="_blank" rel="noopener noreferrer">GitHub</a>.
+                <a href="https://github.com/3samourai/supprimer" target="_blank" rel="noopener noreferrer">GitHub</a>.
             </p>
         </div>
 
@@ -556,7 +554,7 @@ app.get('/privacy', (c) => {
             </p>
             <ul>
                 <li>Open an issue on our GitHub repository</li>
-                <li>Contact me on Bluesky: <a href="https://bsky.app/profile/your.handle.bsky.social" target="_blank">@your.handle</a></li>
+                <li>Contact me on Bluesky: <a href="https://bsky.app/profile/samourai.bsky.social" target="_blank">@samourai</a></li>
             </ul>
         </div>
 
