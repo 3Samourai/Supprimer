@@ -1,6 +1,6 @@
 {
-  "name": "bluesky-delet",
-  "version": "0.0.0",
+  "name": "Supprimer",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "deploy": "wrangler deploy",
@@ -10,7 +10,11 @@
   },
   "devDependencies": {
     "@cloudflare/vitest-pool-workers": "^0.5.2",
-    "wrangler": "^3.60.3",
-    "vitest": "2.0.5"
+    "vitest": "2.0.5",
+    "wrangler": "^3.60.3"
+  },
+  "dependencies": {
+    "@atproto/api": "^0.13.16",
+    "hono": "^4.6.10"
   }
 }
